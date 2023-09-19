@@ -1,8 +1,9 @@
+
 public class DoublyLinkedList {
 
-    private Node head;
+    Node head;
 
-    private class Node {
+    public class Node {
         int value;
         Node next;
         Node prev;

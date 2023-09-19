@@ -1,177 +1,165 @@
-
-import java.util.Scanner;
-
 public class SinglyLinkedList {
-    Node head;
-    static class Node {
-        int data;
-        Node next;
-        Node(int val) {
-            data = val;
-            next = null;
-        }
+
+    private int size;
+    public SinglyLinkedList() {
+        this.size = 0;
     }
-    public static void add(SinglyLinkedList list,int data)
-    {
-        Node newnode=new Node(data);
-        if(list.head==null)
-            list.head=newnode;
-        else {
-            Node last=list.head;
-            while(last.next!=null)
-                last=last.next;
-            last.next=newnode;
-        }
-        //return list;
-    }
-    public static void printList(SinglyLinkedList list)
-    {      Node node=list.head;
-        while(node!=null)
-        {
-            System.out.print(node.data+" ");
-            node=node.next;
-        }
-        System.out.println();
-    }
-    public static int findList(SinglyLinkedList list,int ele)
-    {
-        Node curr=list.head;
-        int cnt=1;
-        while(curr!=null&&curr.data!=ele)
-        {
-            curr=curr.next;cnt++;
-        }
-        if(curr!=null && curr.data==ele)
-            return cnt;
-        return -1;
-    }
-    public static void deleteList(SinglyLinkedList list,int ele)
-    {
-        Node currNode=list.head,prev=null;
-        if(currNode!=null && currNode.data==ele)
-        {
-            list.head=currNode.next;
-        }
-        else {
-            while(currNode!=null && currNode.data!=ele)
-            {
-                prev=currNode;
-                currNode=currNode.next;
-            }
-            prev.next=currNode.next;
-        }
-    }
-    public static void insertList(SinglyLinkedList list,int pos,int ele)
-    {
-        Node curr=list.head,prev=null;
-        int cnt=1;
-        while(curr!=null&&cnt!=pos)
-        {
-            prev=curr;
-            curr=curr.next;
-            cnt++;
-        }
-        Node newnode=new Node(ele);
-        if(cnt==pos)
-        {
-            if(prev!=null)
-                prev.next=newnode;
-            else
-                list.head=newnode;
-            newnode.next=curr;
-        }
-        else {
-            curr.next=newnode;
+
+    private class Node {
+        private int value;
+        private Node next;
+
+        public Node(int value) {
+            this.value = value;
         }
 
-
-    }
-    public static void replaceList(SinglyLinkedList list,int val1,int val2)
-    {   Node curr1=list.head;
-        Node prev1=null;
-        while(curr1!=null&&curr1.data!=val1)
-        {   prev1=curr1;
-            curr1=curr1.next;
-        }
-        Node curr2=list.head;
-        Node prev2=null;
-        while(curr2!=null&&curr2.data!=val2)
-        {   prev2=curr2;
-            curr2=curr2.next;
-        }
-        if(prev1!=null)
-            prev1.next=curr2;
-        prev2.next=curr1;
-        Node temp=new Node(curr1.data);
-        temp.next=curr1.next;
-        curr1.next=curr2.next;
-        curr2.next=temp.next;
-        if(list.head.data==val1)
-            list.head=curr2;
-    }
-    public static void reverseList(SinglyLinkedList list)
-    {
-        Node prev=null,curr=list.head;
-        Node Next;
-        if(curr!=null&& curr.next!=null) {
-            Next = curr.next;
-            while(curr!=null)
-            {
-                curr.next=prev;
-                prev=curr;
-                curr=Next;
-                if(Next!=null)
-                    Next=Next.next;
-            }
-            list.head=prev;
+        public Node(int value, Node next) {
+            this.value = value;
+            this.next = next;
         }
     }
-    public static void main(String args [])
-    {
-        SinglyLinkedList list = new SinglyLinkedList();
-        Scanner sc = new Scanner(System.in);
-        Integer flag = 1;
-        while (flag == 1) {
-            System.out.println("Enter the number of the below option to do list operation");
-            System.out.println("1. ADD A ELEMENT");
-            System.out.println("2. VIEW LIST");
-            System.out.println("3. REMOVE A ELEMENT");
-            System.out.println("4. REVERSE LIST");
-            System.out.println("5. FIND A ELEMENT");
-            System.out.println("6. TO INSERT ELEMENT");
-            System.out.println("7. TO REPLACE TWO ELEMENTS");
-            System.out.println("8. EXIT");
-            Integer opt = sc.nextInt();
-            switch (opt) {
-                case 1:
-                    System.out.println("Enter the value to add");
-                    add(list, sc.nextInt());
-                    break;
-                case 2:
-                    printList(list);
-                    break;
-                case 3:
-                    System.out.println("Enter the value to remove");
-                    deleteList(list, sc.nextInt());
-                    break;
-                case 4:
-                    reverseList(list);
-                    break;
-                case 5:
-                    System.out.println("Enter the value to be searched");
-                    System.out.println(findList(list, sc.nextInt()));
-                    break;
-                case 6:System.out.println("Enter Position and element to be inserted:");
-                    insertList(list,sc.nextInt(),sc.nextInt());break;
-                case 7:System.out.println("Enter the elements to be replaced:");
-                    replaceList(list,sc.nextInt(),sc.nextInt());break;
-                case 8:
-                    flag = 0;
-                    break;
-            }
 
-        }
+    private Node head;
+    private Node tail;
 
+    public void insertAtBeginning(int element) {
+        Node node = new Node(element);
+        node.next = head;
+        head = node;
 
+        if (tail == null)
+            tail = head;
+
+        size++;
     }
-}
+
+    public void insertAtLast(int element) {
+        if (tail == null) {
+            insertAtBeginning(element);
+            return;
+        }
+        Node node = new Node(element);
+        tail.next = node;
+        node = tail;
+        size++;
+    }
+
+    public void insertAtIndex(int index, int element) {
+        if (index == 0) {
+            insertAtBeginning(element);
+            return;
+        }
+        else if (index == size) {
+            insertAtLast(element);
+            return;
+        }
+        Node temp = head;   // i -> 0
+        for (int i=1; i<index; i++) {
+            temp = temp.next;
+        }
+        Node node = new Node(element, temp.next);
+        temp.next = node;
+        size++;
+    }
+
+    // INSERT USING RECURSION
+    public void insertUsingRecursion(int value, int index) {
+        head = insertUsingRecursion(value, index, head);
+    }
+
+    private Node insertUsingRecursion(int value, int index, Node node) {
+        if (index == 0) {
+            Node temp = new Node(value, node);
+            size++;
+            return temp;
+        }
+        node.next = insertUsingRecursion(value, index-1, node.next);
+        return node;
+    }
+
+    public int deleteLast() {
+        if (size <= 1)
+            return removeFirst();
+
+        Node secondLast = get(size - 2);
+        int element = tail.value;
+        tail = secondLast;
+        tail.next = null;
+        return element;
+    }
+
+    public int deleteParticular(int index) {
+        if (index == 0)
+            return removeFirst();
+        else if (index == size-1)
+            return deleteLast();
+
+        Node previous = get(index-1);
+        int element = previous.next.value;
+        previous.next = previous.next.next;
+        return element;
+    }
+
+    public Node find(int value) {
+        Node node = head;
+        while (node != null) {
+            if (node.value == value)
+                return node;
+            node = node.next;
+        }
+        return null;
+    }
+
+    public Node get(int index) {
+        Node node = head;
+        for (int i=0; i<index; i++) {
+            node = node.next;
+        }
+        return node;
+    }
+
+    public int removeFirst() {
+        int element = head.value;
+        head = head.next;
+
+        if (head == null)
+            tail = null;
+
+        size--;
+        return element;
+    }
+
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.value + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("END");
+    }
+
+    public static void main(String[] args) {
+
+            SinglyLinkedList sList = new SinglyLinkedList();
+            sList.insertAtBeginning(3);
+            sList.insertAtBeginning(4);
+            sList.insertAtBeginning(16);
+            sList.insertAtBeginning(7);
+            sList.insertAtLast(5);
+            sList.insertAtIndex(3, 100);
+            sList.display();
+
+            System.out.println("\nFirst element : " + sList.removeFirst());
+            sList.display();
+
+            System.out.println("\nLast Element : " + sList.deleteLast());
+            sList.display();
+
+            System.out.println("\nIndex : " + sList.deleteParticular(1));
+            sList.display();
+
+            System.out.println("\nInsert using Recursion");
+            sList.insertUsingRecursion(88, 2);
+            sList.display();
+        }
+    }
