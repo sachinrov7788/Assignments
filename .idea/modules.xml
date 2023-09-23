@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Assignment.iml" filepath="$PROJECT_DIR$/.idea/Assignment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BinaryTree/BinaryTree.iml" filepath="$PROJECT_DIR$/BinaryTree/BinaryTree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BlackJackGame/BlackJackGame.iml" filepath="$PROJECT_DIR$/BlackJackGame/BlackJackGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BubbleSortAlgorithm/BubbleSortAlgorithm.iml" filepath="$PROJECT_DIR$/BubbleSortAlgorithm/BubbleSortAlgorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Constructor/Constructor.iml" filepath="$PROJECT_DIR$/Constructor/Constructor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Finonacci/Finonacci.iml" filepath="$PROJECT_DIR$/Finonacci/Finonacci.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Graph/Graph.iml" filepath="$PROJECT_DIR$/Graph/Graph.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HashSet/HashSet.iml" filepath="$PROJECT_DIR$/HashSet/HashSet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HashTable/HashTable.iml" filepath="$PROJECT_DIR$/HashTable/HashTable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Interface/Interface.iml" filepath="$PROJECT_DIR$/Interface/Interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Linked List/Linked List.iml" filepath="$PROJECT_DIR$/Linked List/Linked List.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LinkedHashMap/LinkedHashMap.iml" filepath="$PROJECT_DIR$/LinkedHashMap/LinkedHashMap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LinkedHashSet/LinkedHashSet.iml" filepath="$PROJECT_DIR$/LinkedHashSet/LinkedHashSet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LongestReapting/LongestReapting.iml" filepath="$PROJECT_DIR$/LongestReapting/LongestReapting.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MergeSort/MergeSort.iml" filepath="$PROJECT_DIR$/MergeSort/MergeSort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SelectionSort/SelectionSort.iml" filepath="$PROJECT_DIR$/SelectionSort/SelectionSort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TreeMap/TreeMap.iml" filepath="$PROJECT_DIR$/TreeMap/TreeMap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TreeSet/TreeSet.iml" filepath="$PROJECT_DIR$/TreeSet/TreeSet.iml" />
+    </modules>
+  </component>
+</project>
