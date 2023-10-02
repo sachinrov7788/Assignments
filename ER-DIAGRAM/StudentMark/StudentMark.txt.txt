@@ -1,0 +1,34 @@
+create database studentmark;
+use studentmark;
+create table Student(
+    StudentID int primary key,
+    Name varchar(255),
+    Program varchar(50)
+);
+
+create table Exam(
+	ExamID int primary key,
+    ExamName varchar(50),
+    Time time,
+    place varchar(100)
+);
+
+create table CourseOffering(
+	OfferingID int primary key,
+    CourseNumber int,
+    Year int,
+    Semester varchar(20),
+    Room varchar(10),
+    Time time
+);
+-- 
+create Table ExamResult(
+	ResultID int primary key,
+    StudentID int unique,
+    OfferingID int unique,
+    ExamID int,
+    Marks int,
+    foreign key (StudentID) references Student(StudentID),
+    foreign key (OfferingID) references CourseOffering(OfferingID),
+    foreign key (ExamID) references Exam(ExamID)
+);
