@@ -24,7 +24,7 @@ Price float4,
 ProductType varchar(50),
 AuthorName varchar(20),
 Address varchar(50) ,
-PublisherName varchar(20),
+PubName varchar(20),
 foreign key(PubName) references publisher(PubName) ,
 foreign key(AuthorName,Address) references author(AuthorName,Address)
 );
@@ -65,6 +65,6 @@ BasketID varchar(10),
 ProCount int,
 Price float4,
 WareCode varchar(50),
-foreign key(WareCode) references stocks(WareCode),
+foreign key(Code) references stocks(Code),
 foreign key(BasketID) references Basket(BasketID)
 );
