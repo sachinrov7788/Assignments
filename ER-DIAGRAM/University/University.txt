@@ -1,0 +1,48 @@
+create database university;
+use  university;
+
+create table course(
+CourseID int primary key,
+Prerequisit varchar(100),
+Credit int,
+Title char(50),
+Syllabus char(30));
+
+create table instructor(
+InsID int primary key,
+Name char(50),
+Title char(100),
+Dept char(20));
+
+create table student(
+StuID int primary key,
+Name varchar(20),
+Program char(20)); 
+
+create table exam(
+ExamNo int primary key,
+Time time,exam_name varchar(20),
+Place varchar(20),
+CourseID int ,
+foreign key(CourseID) references course(CourseID));
+
+create table marks(
+StudentID int,
+Grade int,
+ExamNo int,
+foreign key(StuID) references student(StuID),
+foreign key(ExamNo) references exam(ExamNo));
+
+create table courseofferings(
+courseID int,
+InsID int,
+Time time,
+Sec char(10),
+Sem int,foreign key(CourseID) references course(CourseID),
+foreign key(InsID) references instructor(InsID));
+
+create table courseTaken(
+StuID int,
+CourseID int, 
+foreign key(StuID) references student(StuID),
+foreign key(CourseID) references course(CourseID));
