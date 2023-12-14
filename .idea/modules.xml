@@ -12,11 +12,14 @@
       <module fileurl="file://$PROJECT_DIR$/HashSet/HashSet.iml" filepath="$PROJECT_DIR$/HashSet/HashSet.iml" />
       <module fileurl="file://$PROJECT_DIR$/HashTable/HashTable.iml" filepath="$PROJECT_DIR$/HashTable/HashTable.iml" />
       <module fileurl="file://$PROJECT_DIR$/Interface/Interface.iml" filepath="$PROJECT_DIR$/Interface/Interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LinkedHashSet/LinearSearch/LinearSearch.iml" filepath="$PROJECT_DIR$/LinkedHashSet/LinearSearch/LinearSearch.iml" />
       <module fileurl="file://$PROJECT_DIR$/Linked List/Linked List.iml" filepath="$PROJECT_DIR$/Linked List/Linked List.iml" />
       <module fileurl="file://$PROJECT_DIR$/LinkedHashMap/LinkedHashMap.iml" filepath="$PROJECT_DIR$/LinkedHashMap/LinkedHashMap.iml" />
       <module fileurl="file://$PROJECT_DIR$/LinkedHashSet/LinkedHashSet.iml" filepath="$PROJECT_DIR$/LinkedHashSet/LinkedHashSet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LongestCollatzSequence/LongestCollatzSequence.iml" filepath="$PROJECT_DIR$/LongestCollatzSequence/LongestCollatzSequence.iml" />
       <module fileurl="file://$PROJECT_DIR$/LongestReapting/LongestReapting.iml" filepath="$PROJECT_DIR$/LongestReapting/LongestReapting.iml" />
       <module fileurl="file://$PROJECT_DIR$/MergeSort/MergeSort.iml" filepath="$PROJECT_DIR$/MergeSort/MergeSort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QuickSort/QuickSort.iml" filepath="$PROJECT_DIR$/QuickSort/QuickSort.iml" />
       <module fileurl="file://$PROJECT_DIR$/SelectionSort/SelectionSort.iml" filepath="$PROJECT_DIR$/SelectionSort/SelectionSort.iml" />
       <module fileurl="file://$PROJECT_DIR$/TreeMap/TreeMap.iml" filepath="$PROJECT_DIR$/TreeMap/TreeMap.iml" />
       <module fileurl="file://$PROJECT_DIR$/TreeSet/TreeSet.iml" filepath="$PROJECT_DIR$/TreeSet/TreeSet.iml" />

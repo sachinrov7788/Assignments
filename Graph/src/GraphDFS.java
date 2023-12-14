@@ -42,7 +42,7 @@ class Graph {
 
 public class GraphDFS {
     public static void main(String[] args) {
-        int vertices = 7;
+        int vertices = 6;
         Graph graph = new Graph(vertices);
 
         // Adding edges to the graph
@@ -51,7 +51,7 @@ public class GraphDFS {
         graph.addEdge(1, 3);
         graph.addEdge(1, 4);
         graph.addEdge(2, 5);
-        graph.addEdge(2, 6);
+//        graph.addEdge(2, 6);
 
         System.out.println("Depth First Traversal (starting from vertex 0): ");
         graph.DFS(0);
