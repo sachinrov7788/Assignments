@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.SupplyChain.SpringBoot_Project1.model.Suppliers;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,4 +17,6 @@ public interface SuppliersService {
     Boolean delete(String id);
     List<Suppliers> getAllData();
     Optional<Suppliers> getById(String id);
+    Boolean uploadImageToDB(Suppliers theSuppliers , MultipartFile file);
+   byte[] downloadImage(Suppliers theSuppliers);
 }

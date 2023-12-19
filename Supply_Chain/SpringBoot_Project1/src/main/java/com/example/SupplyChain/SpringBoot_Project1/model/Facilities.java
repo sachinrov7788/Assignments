@@ -29,7 +29,4 @@ public class Facilities {
     @Field("supplier_uid")
     @DocumentReference(collection="suppliers")
     private Suppliers supplierUid;
-
-    public Facilities(String cd, List<String> fsdf, String sai, String drrr, String reuei, String dfsd, String dfsd1) {
-    }
 }

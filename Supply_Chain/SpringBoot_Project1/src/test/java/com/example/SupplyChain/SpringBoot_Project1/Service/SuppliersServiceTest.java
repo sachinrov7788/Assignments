@@ -26,7 +26,7 @@ public class SuppliersServiceTest {
 
     @Test
     public void testThatFacilityCanbeCreated() throws Exception{
-        Suppliers newSuppliers=new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(repo.save(newSuppliers)).thenReturn(newSuppliers);
         Suppliers result = service.insert(newSuppliers);
         assertEquals(newSuppliers, result);
@@ -34,7 +34,7 @@ public class SuppliersServiceTest {
 
     @Test
     public void testThatFacilityCanNotbeCreated() throws Exception{
-        Suppliers newSuppliers=new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(repo.save(newSuppliers)).thenThrow(RuntimeException.class);
         Suppliers result = service.insert(newSuppliers);
         assertNotEquals(newSuppliers, result);
@@ -42,7 +42,7 @@ public class SuppliersServiceTest {
 
     @Test
     public void testThatFacilityCanGetById() throws Exception {
-        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(repo.findById("cd")).thenReturn(Optional.of(newSuppliers));
         Optional<Suppliers> result=service.getById("cd");
         assertEquals(Optional.of(newSuppliers),result);
@@ -50,7 +50,7 @@ public class SuppliersServiceTest {
 
     @Test
     public void testThatFacilityCanNotGetById() throws Exception {
-        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(repo.findById("snffdk")).thenThrow(RuntimeException.class);
         Optional<Suppliers> result=service.getById("snffdk");
         assertNotEquals(Optional.of(newSuppliers),result);
@@ -58,7 +58,7 @@ public class SuppliersServiceTest {
 
     @Test
     public void testThatFacilityCanUpdate() throws Exception {
-        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(repo.save(newSuppliers)).thenReturn(newSuppliers);
         Suppliers result = service.update(newSuppliers);
         assertEquals(newSuppliers, result);
@@ -66,22 +66,17 @@ public class SuppliersServiceTest {
 
     @Test
     public void testThatFacilityCanNotUpdate() throws Exception {
-        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(repo.save(newSuppliers)).thenThrow(RuntimeException.class);
         Suppliers result = service.update(newSuppliers);
         assertNotEquals(newSuppliers, result);
     }
 
-//    @Test
-//    public void testThatFacilityCanDeleteById() throws Exception {
-//        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
-//        Mockito.when(repo.deleteById("cd")).thenReturn();
-//    }
-//
-//    @Test
-//    public void testThatFacilityCanNotDeleteById() throws Exception {
-//        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
-//
-//    }
-
+    @Test
+    public void testThatFacilityCanDeleteById() throws Exception {
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
+        Mockito.when(repo.delete("cd")).thenReturn(true);
+        service.delete("cd");
+        Mockito.verify(repo, Mockito.times(1)).delete("cd");
+    }
 }

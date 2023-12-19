@@ -40,7 +40,7 @@ public class SuppliersControllerTest {
 
     @Test
     void SupplierGetAllData() throws Exception {
-        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(service.getAllData()).thenReturn(Arrays.asList(newSuppliers));
         String result=mockMvc.perform(MockMvcRequestBuilders.get("/suppliers/alldata"))
                 .andExpect(status().isOk())
@@ -55,7 +55,7 @@ public class SuppliersControllerTest {
 
     @Test
     void testGetByIdWorks() throws Exception {
-        Suppliers newSuppliers=new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(service.getById(Mockito.anyString())).thenReturn(Optional.of(newSuppliers));
         String result = mockMvc.perform(MockMvcRequestBuilders.get("/suppliers/databyid/cd")).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
         System.out.println("_____________________________");
@@ -68,7 +68,7 @@ public class SuppliersControllerTest {
 
     @Test
     void testGetByIdNotWorks() throws Exception {
-        Suppliers newSuppliers=new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(service.getById("id")).thenThrow(RuntimeException.class);
         String result = mockMvc.perform(MockMvcRequestBuilders.get("/suppliers/databyid/id"))
                 .andExpect(status().isBadRequest())
@@ -86,7 +86,7 @@ public class SuppliersControllerTest {
 
     @Test
     public void testInsertWorks() throws Exception{
-        Suppliers newSuppliers=new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(service.insert(Mockito.any(Suppliers.class))).thenReturn(newSuppliers);
         String result = mockMvc.perform(MockMvcRequestBuilders.post("/suppliers/insert").contentType(MediaType.APPLICATION_JSON).content(new ObjectMapper().writeValueAsString(newSuppliers))).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
         System.out.println("___________");
@@ -98,7 +98,7 @@ public class SuppliersControllerTest {
 
     @Test
     public void testInsertNotWorks() throws Exception{
-        Suppliers newSuppliers=new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(service.insert(newSuppliers)).thenThrow(RuntimeException.class);
         String result = mockMvc.perform(MockMvcRequestBuilders.post("/suppliers/insert").contentType(MediaType.APPLICATION_JSON).content(new ObjectMapper().writeValueAsString(newSuppliers))).andExpect(status().isBadRequest()).andExpect(MockMvcResultMatchers.content().string(new ObjectMapper().writeValueAsString(new Suppliers())))
                 .andReturn().getResponse().getContentAsString();
@@ -111,7 +111,7 @@ public class SuppliersControllerTest {
 
     @Test
     public void testUpdateWorks() throws Exception{
-        Suppliers newSuppliers=new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(service.update(Mockito.any(Suppliers.class))).thenReturn(newSuppliers);
         String result = mockMvc.perform(MockMvcRequestBuilders.put("/suppliers/update").contentType(MediaType.APPLICATION_JSON).content(new ObjectMapper().writeValueAsString(newSuppliers))).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
         System.out.println("___________");
@@ -123,7 +123,7 @@ public class SuppliersControllerTest {
 
     @Test
     public void testUpdateNotWorks() throws Exception{
-        Suppliers newSuppliers=new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(service.update(newSuppliers)).thenThrow(RuntimeException.class);
         String result = mockMvc.perform(MockMvcRequestBuilders.put("/suppliers/update").contentType(MediaType.APPLICATION_JSON).content(new ObjectMapper().writeValueAsString(newSuppliers))).andExpect(status().isBadRequest()).andExpect(MockMvcResultMatchers.content().string(new ObjectMapper().writeValueAsString(new Suppliers())))
                 .andReturn().getResponse().getContentAsString();
@@ -136,7 +136,7 @@ public class SuppliersControllerTest {
 
     @Test
     void testDeleteWorks() throws Exception {
-        Suppliers newSuppliers=new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(service.getById(Mockito.anyString())).thenReturn(Optional.of(newSuppliers));
         Mockito.when(service.delete("cd")).thenReturn(true);
         String result = mockMvc.perform(MockMvcRequestBuilders.delete("/suppliers/delete/cd")).andExpect(status().isOk()).andReturn().getResponse()
@@ -151,7 +151,7 @@ public class SuppliersControllerTest {
 
     @Test
     void testDeleteNotWorks() throws Exception {
-        Suppliers newSuppliers=new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier");
+        Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
         Mockito.when(service.getById("cd")).thenReturn(Optional.of(newSuppliers));
         Mockito.when(service.delete("id")).thenThrow(RuntimeException.class);
         String result = mockMvc.perform(MockMvcRequestBuilders.delete("/suppliers/delete/id"))
