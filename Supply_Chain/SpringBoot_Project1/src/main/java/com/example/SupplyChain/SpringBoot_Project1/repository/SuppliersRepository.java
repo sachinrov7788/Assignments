@@ -5,5 +5,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface SuppliersRepository extends MongoRepository<Suppliers,String> {
 
-    boolean delete (String _id);
+    boolean deleteBy_id (String _id);
 }

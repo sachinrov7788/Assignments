@@ -75,8 +75,8 @@ public class SuppliersServiceTest {
     @Test
     public void testThatFacilityCanDeleteById() throws Exception {
         Suppliers newSuppliers = new Suppliers("cd", "emailid", "facilities", new Location("adrress", "country", "pincode", "region", "state"), "material_type", "raw_material", "styles", "supplier_name", "supplier_uid", "tier", "imagefile_path");
-        Mockito.when(repo.delete("cd")).thenReturn(true);
+        Mockito.when(repo.deleteBy_id("cd")).thenReturn(true);
         service.delete("cd");
-        Mockito.verify(repo, Mockito.times(1)).delete("cd");
+        Mockito.verify(repo, Mockito.times(1)).deleteBy_id("cd");
     }
 }

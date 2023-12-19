@@ -62,7 +62,7 @@ public class SuppliersServiceImpl implements SuppliersService {
 
     public Boolean delete(String _id){
         try{
-            repo.delete(_id);
+            repo.deleteBy_id(_id);
             return true;
         }
         catch(Exception e){

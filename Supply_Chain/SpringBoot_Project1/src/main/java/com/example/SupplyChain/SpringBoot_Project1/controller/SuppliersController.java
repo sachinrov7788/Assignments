@@ -73,7 +73,7 @@ public class SuppliersController {
     }
 
     @DeleteMapping("/delete/{_id}")
-    public ResponseEntity<Boolean> deleteby_id(@PathVariable String _id){
+    public ResponseEntity<Boolean> delete(@PathVariable String _id){
         try {
             suppliersService.delete(_id);
             return new ResponseEntity<>(true,HttpStatus.OK);
