@@ -13,6 +13,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/facilities")
 public class FacilitiesController {
+
     @Autowired
     FacilitiesService facilitiesService;
     @GetMapping("/alldata")
@@ -61,11 +62,11 @@ public class FacilitiesController {
         }
     }
 
-    @DeleteMapping("/delete/{_id}")
-    public ResponseEntity<String> delete(@PathVariable String _id){
+    @DeleteMapping("/delete/{_id}/{Path}")
+    public ResponseEntity<String> delete(@PathVariable("_id") String id,@PathVariable String Path){
         try {
-            if (facilitiesService.getById((_id)).isPresent()) {
-                facilitiesService.delete(_id);
+            if (facilitiesService.getById((id)).isPresent()) {
+                facilitiesService.delete(id);
                 return new ResponseEntity<String>("Deleted successfully",HttpStatus.OK);
             }
             else{

@@ -4,11 +4,13 @@ import com.example.SupplyChain.SpringBoot_Project1.model.Facilities;
 import com.example.SupplyChain.SpringBoot_Project1.repository.FacilitiesRepository;
 import com.example.SupplyChain.SpringBoot_Project1.service.FacilitiesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Lazy(value = true)
 @Service
 public class FacilitiesServiceImpl implements FacilitiesService {
     @Autowired

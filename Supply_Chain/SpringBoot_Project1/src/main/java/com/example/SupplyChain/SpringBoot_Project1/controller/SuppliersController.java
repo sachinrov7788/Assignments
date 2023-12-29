@@ -71,7 +71,6 @@ public class SuppliersController {
             return new ResponseEntity<Suppliers> (new Suppliers(), HttpStatus.BAD_REQUEST);
         }
     }
-
     @DeleteMapping("/delete/{_id}")
     public ResponseEntity<Boolean> delete(@PathVariable String _id){
         try {

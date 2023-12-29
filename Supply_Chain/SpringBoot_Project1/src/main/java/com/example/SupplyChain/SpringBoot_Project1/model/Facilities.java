@@ -13,9 +13,9 @@ import java.util.List;
 @Data
 public class Facilities {
     @Id
-    private String _id;
+    private String id;
 
-    private ArrayList<String> certifications;
+    private List<String> certifications;
 
     @Field("created_by")
     private String createdBy;
@@ -29,4 +29,5 @@ public class Facilities {
     @Field("supplier_uid")
     @DocumentReference(collection="suppliers")
     private Suppliers supplierUid;
+
 }
