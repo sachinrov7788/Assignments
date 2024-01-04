@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>General Sibling Selector Example</title>
+  <style>
+    /* General Sibling Selector */
+    h2 ~ p {
+      font-style: italic;
+      color: green; /* Added for better visibility in the example */
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Title</h2>
+  <p>This paragraph has italic font style due to the General Sibling Selector.</p>
+
+  <h2>Another Title</h2>
+  <p>This paragraph also has italic font style because it is a sibling of an h2 element.</p>
+
+  <p>This paragraph is not a sibling of an h2 element, so it does not have italic font style.</p>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+
+            /* Class Selector */
+            .red.green-text{
+                background-color: red;
+                color: green;
+            }
+
+            /* ID Selector */
+            #blue{
+                background-color: blue;
+            }
+
+            /* Element Selector */
+            span, li{
+                background-color: violet;
+            }
+
+            /* Descendant Selector */
+            div b{
+                background-color: yellow;
+            }
+
+            /* Child Selector */
+            div > p{
+                font-weight: bold;
+            }
+
+            /* Adjacent Sibling Selector */
+            h2 + p{               
+                color: orange;
+            }
+
+            /* General Sibling Selector */
+            h4 ~ p{
+                font-style: italic;
+                color: brown;
+            }

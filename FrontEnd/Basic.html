@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Form</title>
+</head>
+<body>
+
+  <h1>Contact Us</h1>
+
+  <form action="/submit" method="post">
+    <label for="name">FirstName:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="name">LastName:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label>Gender:</label>
+    <input type="radio" id="male" name="gender" value="male" checked>
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label>
+
+    <input type="checkbox" id="subscribe" name="subscribe" checked>
+    <label for="subscribe">Subscribe to newsletter</label>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    let name = "Sachin";
+    console.log(name)
+    name +=" Sasi"
+    console.log(name)
+  </script>
+
+</body>
+</html>
